@@ -1,0 +1,28 @@
+name: 'Install Octave (macOS)'
+description: 'Install GNU Octave on macOS'
+author: 'Ray Zimmerman'
+
+runs:
+  using: "composite"
+  steps:
+    - name: Initialize Package Manager
+      run: brew update
+      shell: bash
+
+    - name: Install GNU Octave
+      run: |
+        brew install octave
+        echo "IS_MATLAB=0" >> $GITHUB_ENV
+        echo "IS_OCTAVE=1" >> $GITHUB_ENV
+        echo "ML_CMD=octave-cli --no-gui --eval" >> $GITHUB_ENV
+        echo "ML_PATHVAR=OCTAVE_PATH" >> $GITHUB_ENV
+      shell: bash
+
+    - name: Set OCTAVE_VER
+      run: |
+        echo "OCTAVE_VER=`$ML_CMD "fprintf('%s', ver('octave').Version)"`" >> $GITHUB_ENV
+      shell: bash
+
+branding:
+  icon: 'zap'
+  color: 'yellow'
