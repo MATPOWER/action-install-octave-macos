@@ -12,8 +12,6 @@ runs:
     - name: Install GNU Octave
       run: |
         brew install octave
-        echo "IS_MATLAB=0" >> $GITHUB_ENV
-        echo "IS_OCTAVE=1" >> $GITHUB_ENV
         echo "ML_NAME=Octave" >> $GITHUB_ENV
         echo "ML_CMD=octave-cli --no-gui --eval" >> $GITHUB_ENV
         echo "ML_PATHVAR=OCTAVE_PATH" >> $GITHUB_ENV
