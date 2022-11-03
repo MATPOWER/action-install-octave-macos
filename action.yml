@@ -8,7 +8,6 @@ runs:
     - name: Initialize Package Manager
       run: |
         brew update
-        brew unlink gcc@10
       shell: bash
 
     - name: Install GNU Octave
