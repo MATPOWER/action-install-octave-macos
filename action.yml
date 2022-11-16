@@ -8,6 +8,13 @@ runs:
     - name: Initialize Package Manager
       run: |
         brew update
+        rm -f /usr/local/bin/2to3-3.11
+        rm -f /usr/local/bin/idle3.11
+        rm -f /usr/local/bin/pydoc3.11
+        rm -f /usr/local/bin/python3.11
+        rm -f /usr/local/bin/python3.11-config
+        echo "HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=1" >> $GITHUB_ENV
+        echo "HOMEBREW_NO_INSTALL_CLEANUP=1" >> $GITHUB_ENV
       shell: bash
 
     - name: Install GNU Octave
