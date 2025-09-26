@@ -24,6 +24,7 @@ runs:
 
     - name: Install GNU Octave
       run: |
+        brew install metis
         brew install octave
         echo "ML_NAME=Octave" >> $GITHUB_ENV
         echo "ML_CMD=octave-cli --no-gui --eval" >> $GITHUB_ENV
